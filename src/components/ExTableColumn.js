@@ -8,7 +8,7 @@ import {
 } from 'element-ui/packages/table/src/util.js';
 
 export default {
-  name: 'TableColumn',
+  name: 'ExTableColumn',
   extends: TableColumn, // 指定继承组件
   props: {
     fitByClass: {
@@ -21,7 +21,7 @@ export default {
     },
     fitGap: {
       type: Number,
-      default: 32,
+      default: null,
     },
   },
   data() {
@@ -36,18 +36,24 @@ export default {
       }
       return parseMinWidth(this.minWidth);
     },
+    realFitGap() {
+      if (this.fitGap !== null) return this.fitGap;
+
+      const isFirstColumn = this.owner.store.states._columns[0].id === this.columnId;
+      return isFirstColumn ? 30 : 0;
+    },
   },
   methods: {
     updateAutoWidth() {
-      let cells = window.document.querySelectorAll(`.${this.columnId} .${this.fitByClass}`);
+      let cells = window.document.querySelectorAll(`td.${this.columnId} .${this.fitByClass}`);
       if (isEmpty(cells)) {
-        cells = window.document.querySelectorAll(`.${this.columnId} .cell`);
+        cells = window.document.querySelectorAll(`td.${this.columnId} .cell`);
       }
       if (isEmpty(cells)) {
         return;
       }
-      const cellLeftPadding = 32;
-      const autoMinWidth = max(map(cells, item => item.getBoundingClientRect().width)) + cellLeftPadding + this.fitGap;
+      const autoMinWidth = max(map(cells, item => item.getBoundingClientRect().width)) + this.realFitGap + 1;
+
       if (this.autoWidth !== autoMinWidth) {
         this.autoWidth = autoMinWidth;
       }
@@ -57,6 +63,6 @@ export default {
     this.updateAutoWidth();
   },
   mounted() {
-    this.updateAutoWidth();
+    this.$nextTick(this.updateAutoWidth);
   },
 };
