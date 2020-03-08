@@ -2,9 +2,9 @@
   "name": "ex-table-column",
   "version": "1.0.0",
   "description": "Extended to element table column, supports column width to be automatically adjusted according to content, supports all attributes of el-table-column, compatible el-table-column.",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "scripts": {
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib src/main.js",
     "dev": "yarn serve",
     "serve": "vue-cli-service serve",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,8 +28,12 @@
   "devDependencies": {
     "@vue/cli-service": "^4.2.3",
     "babel-cli": "^6.26.0",
+    "element-ui": "^2.13.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^6.2.1"
+    "eslint-plugin-vue": "^6.2.1",
+    "vue": "^2.6.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
 }

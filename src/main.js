@@ -1,1 +1,1 @@
-module.exports = require('./component/ExTableColumn')
+module.exports = require('./components/ExTableColumn')
