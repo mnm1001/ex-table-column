@@ -44,7 +44,7 @@ export default {
       if (isEmpty(cells)) {
         return;
       }
-      console.log(1111, '', this.columnId,  map(cells, item => item.getBoundingClientRect().width));
+
       const autoMinWidth = max(map(cells, item => item.getBoundingClientRect().width)) + this.fitGap + 1;
 
       if (this.autoWidth !== autoMinWidth) {

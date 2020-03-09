@@ -25,171 +25,40 @@ Vue.use(Element)
 Vue.component(ExTableColumn.name, ExTableColumn);
 ```
 ### Simple use
-Replace `<el-table-column />` to `<ex-table-column>`, add prop `:autoFit='true'`, add style `
-  .el-table .cell {
-    white-space: nowrap;
-    width: fit-content;
-  }
-`:
+Replace `<el-table-column />` to `<ex-table-column>`, add prop `:autoFit='true'`:
 ``` javascript
- <template>
-    <el-table
-      :data='tableData'
-      style='width: 800px; margin: 0 auto;'>
-      <ex-table-column
-        :autoFit='true'
-        v-for='column in tableColumns'
-        :prop='column.prop'
-        :label='column.label'
-      />
-      </el-table-column>
-    </el-table>
-  </template>
-
-<script>
-export default {
-  data() {
-    return {
-      tableColumns: [{
-        prop: 'date',
-        label: 'date',
-      }, {
-        prop: 'name',
-        label: 'name',
-      }, {
-        prop: 'address',
-        label: 'address',
-      }, {
-        prop: 'address2',
-        label: 'address2',
-      }, {
-        prop: 'phoneNumber',
-        label: 'phoneNumber',
-      }, {
-        prop: 'phoneNumber',
-        label: 'phoneNumber',
-      }],
-      tableData: [{
-        date: '2016-05-03',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        phoneNumber: '+86 13888888888',
-      }, {
-        date: '2016-05-02',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        phoneNumber: '+86 13888888888',
-      }, {
-        date: '2016-05-04',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        phoneNumber: '+86 13888888888',
-      }, {
-        date: '2016-05-01',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        phoneNumber: '+86 13888888888',
-      }],
-    };
-  },
-};
-</script>
-<style>
-  .el-table .cell {
-    white-space: nowrap;
-    width: fit-content;
-  }
-</style>
+<el-table>
+  <ex-table-column
+    :autoFit='true'
+  />
+</el-table>
+```
+And add style:
+``` css
+.el-table .cell {
+  white-space: nowrap;
+  width: fit-content;
+}
 ```
 ### Complicated slot
-Add prop `fitByClass` to specify a class of the element, which is in slot component, and use to calculate the column width.
+Add prop `fitByClass` to specify a class of the element, which is in slot component, and use to calculate the column width:
 ``` javascript
- <template>
-    <el-table
-      :data='tableData'
-      style='width: 800px; margin: 0 auto;'>
-      <ex-table-column
-        :autoFit='true'
-        fitByClass="auto-fit-target"
-        :fitGap="column.prop === 'date' ? 64 : 20"
-        v-for='column in tableColumns'
-        :prop='column.prop'
-        :label='column.label'
-      >
-        <div class="column-wrapper" slot-scope="scope">
-          <div class="column-content auto-fit-target" :title="scope.row[scope.column.property]">
-            {{scope.row[scope.column.property]}}
-          </div>
-        </div>
-      </ex-table-column
-      </el-table-column>
-    </el-table>
-  </template>
-
-<script>
-export default {
-  data() {
-    return {
-      tableColumns: [{
-        prop: 'date',
-        label: 'date',
-      }, {
-        prop: 'name',
-        label: 'name',
-      }, {
-        prop: 'address',
-        label: 'address',
-      }, {
-        prop: 'address2',
-        label: 'address2',
-      }, {
-        prop: 'phoneNumber',
-        label: 'phoneNumber',
-      }, {
-        prop: 'phoneNumber',
-        label: 'phoneNumber',
-      }],
-      tableData: [{
-        date: '2016-05-03',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        phoneNumber: '+86 13888888888',
-      }, {
-        date: '2016-05-02',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        phoneNumber: '+86 13888888888',
-      }, {
-        date: '2016-05-04',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        phoneNumber: '+86 13888888888',
-      }, {
-        date: '2016-05-01',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
-        phoneNumber: '+86 13888888888',
-      }],
-    };
-  },
-};
-</script>
-<style>
-  .el-table .cell {
-    white-space: nowrap;
-    width: fit-content;
-  }
-</style>>
+<el-table>
+  <ex-table-column
+    :autoFit='true'
+    fitByClass="auto-fit-target"
+    :fitGap="column.prop === 'date' ? 64 : 20"
+  >
+    <div class="column-wrapper" slot-scope="scope">
+      <div class="column-content auto-fit-target" :title="scope.row[scope.column.property]">
+        {{scope.row[scope.column.property]}}
+      </div>
+    </div>
+  </ex-table-column>
+</el-table>
 ```
-
+Make sure that the element choosed by `fitByClass`, the width of the element is correct, maybe you should add `white-space: nowrap;
+  width: fit-content;` for the element.
 ## Extend prop
 
 | Prop | Description | Type | Accepted Values | Default | 
