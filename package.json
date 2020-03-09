@@ -1,6 +1,6 @@
 {
   "name": "ex-table-column",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Extended to element table column, supports column width to be automatically adjusted according to content, supports all attributes of el-table-column, compatible el-table-column.",
   "main": "dist/ex-table-column.umd.min.js",
   "files": [
