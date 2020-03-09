@@ -1,0 +1,71 @@
+<template>
+  <el-table
+    :data='tableData'
+    style='width: 800px; margin: 0 auto;'
+    border
+  >
+    <ex-table-column
+      :autoFit='true'
+      v-for='column in tableColumns'
+      :key="column.prop"
+      :prop='column.prop'
+      :label='column.label'
+    />
+  </el-table>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      tableColumns: [{
+        prop: 'date',
+        label: 'date',
+      }, {
+        prop: 'name',
+        label: 'name',
+      }, {
+        prop: 'address',
+        label: 'address',
+      }, {
+        prop: 'address2',
+        label: 'address2',
+      }, {
+        prop: 'phoneNumber',
+        label: 'phoneNumber',
+      }],
+      tableData: [{
+        date: '2016-05-03',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
+        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
+        phoneNumber: '+86 13888888888',
+      }, {
+        date: '2016-05-02',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
+        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
+        phoneNumber: '+86 13888888888',
+      }, {
+        date: '2016-05-04',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
+        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
+        phoneNumber: '+86 13888888888',
+      }, {
+        date: '2016-05-01',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
+        address2: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
+        phoneNumber: '+86 13888888888',
+      }],
+    };
+  },
+};
+</script>
+<style>
+  .el-table .cell {
+    white-space: nowrap;
+    width: fit-content;
+  }
+</style>

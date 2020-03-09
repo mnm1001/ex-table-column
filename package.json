@@ -1,18 +1,12 @@
 {
   "name": "ex-table-column",
   "version": "1.0.2",
-  "description": "Extended to element table column, supports column width to be automatically adjusted according to content, supports all attributes of el-table-column, compatible el-table-column.",
-  "main": "dist/ex-table-column.umd.min.js",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "private": true,
   "scripts": {
+    "serve": "vue-cli-service serve --mode dev",
     "build": "vue-cli-service build --target lib src/components/ExTableColumn.js",
-    "dev": "yarn serve",
-    "serve": "vue-cli-service serve",
-    "prepublish": "yarn build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "vue-cli-service lint",
+    "prepublish": "yarn build"
   },
   "repository": {
     "type": "git",
@@ -30,15 +24,37 @@
     "url": "https://github.com/mnm1001/ex-table-column/issues"
   },
   "homepage": "https://github.com/mnm1001/ex-table-column#readme",
-  "devDependencies": {
-    "@vue/cli-service": "^4.2.3",
-    "babel-cli": "^6.26.0",
-    "element-ui": "^2.13.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^6.2.1",
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "lodash": "^4.17.15",
     "vue": "^2.6.11"
   },
-  "dependencies": {
-    "lodash": "^4.17.15"
-  }
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.2.0",
+    "@vue/cli-plugin-eslint": "~4.2.0",
+    "@vue/cli-service": "~4.2.0",
+    "babel-eslint": "^10.0.3",
+    "element-ui": "^2.13.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.1.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }

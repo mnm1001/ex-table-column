@@ -103,9 +103,9 @@ export default {
     white-space: nowrap;
     width: fit-content;
   }
-</style>>
+</style>
 ```
-### Complicated Slot
+### Complicated slot
 Add prop `fitByClass` to specify a class of the element, which is in slot component, and use to calculate the column width.
 ``` javascript
  <template>
@@ -196,4 +196,4 @@ export default {
 | --- | --- | --- | --- | --- |
 | autoFit | whether column width to be automatically adjusted according to content, if set to be false, the behaves of `<ex-table-column />` will be same as `<el-table-column>`. | boolean | - | true
 | fitByClass | Specify the class of the element that determines the width | string | - | cell
-| fitGap | The content right margin | number | - | first column is 30, other is 0
+| fitGap | The content right margin | number | - | 0

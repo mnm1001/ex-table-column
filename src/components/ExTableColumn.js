@@ -21,7 +21,7 @@ export default {
     },
     fitGap: {
       type: Number,
-      default: null,
+      default: 0,
     },
   },
   data() {
@@ -36,12 +36,6 @@ export default {
       }
       return parseMinWidth(this.minWidth);
     },
-    realFitGap() {
-      if (this.fitGap !== null) return this.fitGap;
-
-      const isFirstColumn = this.owner.store.states._columns[0].id === this.columnId;
-      return isFirstColumn ? 30 : 0;
-    },
   },
   methods: {
     updateAutoWidth() {
@@ -52,7 +46,8 @@ export default {
       if (isEmpty(cells)) {
         return;
       }
-      const autoMinWidth = max(map(cells, item => item.getBoundingClientRect().width)) + this.realFitGap + 1;
+      console.log(1111, '', this.columnId,  map(cells, item => item.getBoundingClientRect().width));
+      const autoMinWidth = max(map(cells, item => item.getBoundingClientRect().width)) + this.fitGap + 1;
 
       if (this.autoWidth !== autoMinWidth) {
         this.autoWidth = autoMinWidth;
