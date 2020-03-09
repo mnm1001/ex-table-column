@@ -1,11 +1,9 @@
 
 import { TableColumn } from 'element-ui';
-import max from 'lodash/max';
-import map from 'lodash/map';
-import isEmpty from 'lodash/isEmpty';
 import {
   parseMinWidth,
 } from 'element-ui/packages/table/src/util.js';
+import { max, map, isEmpty } from './util'
 
 export default {
   name: 'ExTableColumn',
