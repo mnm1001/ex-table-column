@@ -1,7 +1,6 @@
 {
   "name": "ex-table-column",
   "version": "1.0.2",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --mode dev",
     "build": "vue-cli-service build --mode prod --target lib src/components/ExTableColumn.js ",
