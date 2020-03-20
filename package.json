@@ -30,8 +30,7 @@
   },
   "homepage": "https://github.com/mnm1001/ex-table-column#readme",
   "dependencies": {
-    "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "core-js": "^3.6.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
@@ -41,6 +40,7 @@
     "element-ui": "^2.13.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.1.2",
+    "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

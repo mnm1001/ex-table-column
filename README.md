@@ -47,7 +47,7 @@ Add prop `fitByClass` to specify a class of the element, which is in slot compon
   <ex-table-column
     :autoFit='true'
     fitByClass="auto-fit-target"
-    :fitGap="column.prop === 'date' ? 64 : 20"
+    :fitGap="20"
   >
     <div class="column-wrapper" slot-scope="scope">
       <div class="column-content auto-fit-target" :title="scope.row[scope.column.property]">
@@ -63,6 +63,6 @@ Make sure that the element choosed by `fitByClass`, the width of the element is 
 
 | Prop | Description | Type | Accepted Values | Default | 
 | --- | --- | --- | --- | --- |
-| autoFit | whether column width to be automatically adjusted according to content, if set to be false, the behaves of `<ex-table-column />` will be same as `<el-table-column>`. | boolean | - | true
+| autoFit | whether column width to be automatically adjusted according to content, if set to be false, the behaves of `<ex-table-column />` will be same as `<el-table-column>`. | boolean | - | false
 | fitByClass | Specify the class of the element that determines the width | string | - | cell
 | fitGap | The content right margin | number | - | 0
