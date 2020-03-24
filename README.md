@@ -50,7 +50,7 @@ Add prop `fitByClass` to specify a class of the element, which is in slot compon
     :fitGap="20"
   >
     <div class="column-wrapper" slot-scope="scope">
-      <div class="column-content auto-fit-target" :title="scope.row[scope.column.property]">
+      <div class="column-content auto-fit-target">
         {{scope.row[scope.column.property]}}
       </div>
     </div>
