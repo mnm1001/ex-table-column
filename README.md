@@ -13,6 +13,11 @@ $ npm install ex-table-column --save
 ```bash
 $ yarn add ex-table-column
 ```
+## Demo
+Clone repository and run:
+```bash
+$ yarn && yarn serve
+```
 ## Required
 - [element-ui](https://github.com/ElemeFE/element)
 ## Quick Start
