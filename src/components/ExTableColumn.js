@@ -32,11 +32,13 @@ export default {
       if (this.autoFit) {
         return parseMinWidth(max([this.minWidth, this.autoWidth]));
       }
-      return parseMinWidth(this.minWidth);
+      return TableColumn.computed.realMinWidth.call(this)
     },
   },
   methods: {
     updateAutoWidth() {
+      if (!this.autoFit) return
+
       let cells = window.document.querySelectorAll(`td.${this.columnId} .${this.fitByClass}`);
       if (isEmpty(cells)) {
         cells = window.document.querySelectorAll(`td.${this.columnId} .cell`);
