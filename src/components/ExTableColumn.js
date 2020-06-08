@@ -21,6 +21,10 @@ export default {
       type: Number,
       default: 0,
     },
+    fitHeader: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -39,9 +43,11 @@ export default {
     updateAutoWidth() {
       if (!this.autoFit) return
 
-      let cells = window.document.querySelectorAll(`td.${this.columnId} .${this.fitByClass}`);
+      const cellWrapperClass = this.fitHeader ? `.${this.columnId}` : `td.${this.columnId}`
+
+      let cells = window.document.querySelectorAll(`${cellWrapperClass} .${this.fitByClass}`);
       if (isEmpty(cells)) {
-        cells = window.document.querySelectorAll(`td.${this.columnId} .cell`);
+        cells = window.document.querySelectorAll(`${cellWrapperClass} .cell`);
       }
       if (isEmpty(cells)) {
         return;

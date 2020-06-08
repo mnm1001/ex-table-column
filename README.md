@@ -46,7 +46,7 @@ And add style:
 }
 ```
 ### Complicated slot
-Add prop `fitByClass` to specify a class of the element, which is in slot component, and use to calculate the column width:
+Add prop `:fitHeader='true'` to specify a class of the element, which is in slot component, and use to calculate the column width:
 ``` javascript
 <el-table>
   <ex-table-column
@@ -64,10 +64,31 @@ Add prop `fitByClass` to specify a class of the element, which is in slot compon
 ```
 Make sure that the element choosed by `fitByClass`, the width of the element is correct, maybe you should add `white-space: nowrap;
   width: fit-content;` for the element.
+
+### Fit header
+Add prop `:fitHeader='true'`:
+``` javascript
+<el-table>
+  <ex-table-column
+    :autoFit='true'
+    :fitHeader='true'
+  />
+</el-table>
+```
+And add style:
+``` css
+.el-table .cell,
+.el-table th>.cell
+{
+  white-space: nowrap;
+  width: fit-content;
+}
+```
 ## Extend prop
 
 | Prop | Description | Type | Accepted Values | Default | 
 | --- | --- | --- | --- | --- |
-| autoFit | whether column width to be automatically adjusted according to content, if set to be false, the behaves of `<ex-table-column />` will be same as `<el-table-column>`. | boolean | - | false
+| autoFit | whether column width to be automatically adjusted according to content. | boolean | - | false
 | fitByClass | Specify the class of the element that determines the width | string | - | cell
 | fitGap | The content right margin | number | - | 0
+| fitHeader | Whether to include the header width when calculating the column width | number | - | false

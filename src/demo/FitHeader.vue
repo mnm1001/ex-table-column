@@ -1,5 +1,5 @@
 <template>
-  <div class="SimpleUse">
+  <div class="FitHeader">
     <el-table
       :data='tableData'
       style='width: 800px; margin: 0 auto;'
@@ -7,9 +7,9 @@
     >
       <ex-table-column
         v-for='column in tableColumns'
+        :fitHeader="true"
         :className='!notAutoFitColums.includes(column.prop) ? "" : "ex-table_column_not-auto-fit"'
         :autoFit='!notAutoFitColums.includes(column.prop)'
-        :minWidth='notAutoFitColums.includes(column.prop) ? 120 : ""'
         :key="column.prop"
         :prop='column.prop'
         :label='column.label'
@@ -41,13 +41,13 @@ export default {
       }],
       tableData: [{
         date: '2016-05-03',
-        name: 'TomTom',
+        name: 'Tom',
         autoFitAddress: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
         notAutoFit: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
         phoneNumber: '+86 13888888888',
       }, {
         date: '2016-05-02',
-        name: 'TomTomTom',
+        name: 'Tom',
         autoFitAddress: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
         notAutoFit: 'No. 189, Grove St, Los Angeles, No. 189, Grove St, Los Angeles',
         phoneNumber: '+86 13888888888',
@@ -69,20 +69,15 @@ export default {
 };
 </script>
 <style lang="scss">
-  .SimpleUse {
+  .FitHeader {
     .el-table {
-      .cell {
+      .cell,
+      th>.cell
+      {
         white-space: nowrap;
         width: fit-content;
       }
-
-      th>.cell {
-        width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
     }
-     
     .ex-table_column_not-auto-fit .cell{
       width: 100% !important;
     }

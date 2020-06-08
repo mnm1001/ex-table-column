@@ -11,6 +11,9 @@
       <el-tab-pane label="Complicated slot" name="ComplicatedSlot">
         <ComplicatedSlot v-if="activeName === 'ComplicatedSlot'" />
       </el-tab-pane>
+      <el-tab-pane label="Fit header" name="FitHeader">
+        <FitHeader v-if="activeName === 'FitHeader'" />
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -18,12 +21,14 @@
 <script>
 import SimpleUse from '@/demo/SimpleUse.vue'
 import ComplicatedSlot from '@/demo/ComplicatedSlot.vue'
+import FitHeader from '@/demo/FitHeader.vue'
 
 export default {
   name: 'App',
   components: {
     SimpleUse,
     ComplicatedSlot,
+    FitHeader,
   },
   data() {
     return {

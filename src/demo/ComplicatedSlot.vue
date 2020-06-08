@@ -1,25 +1,27 @@
  <template>
-  <el-table
-    :data='tableData'
-    style='width: 800px; margin: 0 auto;'
-    border
-  >
-    <ex-table-column
-      :autoFit='true'
-      fitByClass="auto-fit-target"
-      :fitGap="20"
-      v-for='column in tableColumns'
-      :key="column.prop"
-      :prop='column.prop'
-      :label='column.label'
+  <div class="ComplicatedSlot">
+    <el-table
+      :data='tableData'
+      style='width: 800px; margin: 0 auto;'
+      border
     >
-      <div class="column-wrapper" slot-scope="scope">
-        <div class="column-content auto-fit-target" :title="scope.row[scope.column.property]">
-          {{scope.row[scope.column.property]}}
+      <ex-table-column
+        :autoFit='true'
+        fitByClass="auto-fit-target"
+        :fitGap="20"
+        v-for='column in tableColumns'
+        :key="column.prop"
+        :prop='column.prop'
+        :label='column.label'
+      >
+        <div class="column-wrapper" slot-scope="scope">
+          <div class="column-content auto-fit-target" :title="scope.row[scope.column.property]">
+            {{scope.row[scope.column.property]}}
+          </div>
         </div>
-      </div>
-    </ex-table-column>
-  </el-table>
+      </ex-table-column>
+    </el-table>
+  </div>
 </template>
 
 <script>
@@ -28,19 +30,19 @@ export default {
     return {
       tableColumns: [{
         prop: 'date',
-        label: 'date',
+        label: 'auto fit column',
       }, {
         prop: 'name',
-        label: 'name',
+        label: 'auto fit column',
       }, {
         prop: 'address',
-        label: 'address',
+        label: 'auto fit column',
       }, {
         prop: 'address2',
-        label: 'address2',
+        label: 'auto fit column',
       }, {
         prop: 'phoneNumber',
-        label: 'phoneNumber',
+        label: 'auto fit column',
       }],
       tableData: [{
         date: '2016-05-03',
@@ -71,9 +73,19 @@ export default {
   },
 };
 </script>
-<style>
-  .el-table .cell {
-    white-space: nowrap;
-    width: fit-content;
+<style lang="scss">
+  .ComplicatedSlot {
+    .el-table {
+      .cell {
+        white-space: nowrap;
+        width: fit-content;
+      }
+
+      th>.cell {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
   }
-</style>>
+</style>
