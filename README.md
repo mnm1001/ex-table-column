@@ -46,7 +46,7 @@ And add style:
 }
 ```
 ### Complicated slot
-Add prop `:fitHeader='true'` to specify a class of the element, which is in slot component, and use to calculate the column width:
+Add prop `fitByClass` to specify a class of the element, which is in slot component, and use to calculate the column width:
 ``` javascript
 <el-table>
   <ex-table-column
@@ -66,7 +66,7 @@ Make sure that the element choosed by `fitByClass`, the width of the element is 
   width: fit-content;` for the element.
 
 ### Fit header
-Add prop `:fitHeader='true'`:
+Calculating the column width does not consider the header width, if you want to include the header, you can add prop `:fitHeader='true'`:
 ``` javascript
 <el-table>
   <ex-table-column
