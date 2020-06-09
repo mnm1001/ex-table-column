@@ -66,7 +66,7 @@ Make sure that the element choosed by `fitByClass`, the width of the element is 
   width: fit-content;` for the element.
 
 ### Fit header
-Calculating the column width does not consider the header width, if you want to include the header, you can add prop `:fitHeader='true'`:
+Calculating the column width does not consider the header width by default, if you want to include the header, you can add prop `:fitHeader='true'`:
 ``` javascript
 <el-table>
   <ex-table-column
@@ -91,4 +91,4 @@ And add style:
 | autoFit | whether column width to be automatically adjusted according to content. | boolean | - | false
 | fitByClass | Specify the class of the element that determines the width | string | - | cell
 | fitGap | The content right margin | number | - | 0
-| fitHeader | Whether to include the header width when calculating the column width | number | - | false
+| fitHeader | Whether to include the header width when calculating the column width | boolean | - | false
